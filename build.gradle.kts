@@ -2,6 +2,7 @@
 buildscript {
     repositories {
         google()
+        gradlePluginPortal()
         mavenCentral()
     }
     dependencies {
@@ -13,7 +14,6 @@ buildscript {
     }
 }
 
-tasks.register("clean", Delete::class){
+tasks.register<Delete>(name = "clean"){
     delete(rootProject.buildDir)
 }
-

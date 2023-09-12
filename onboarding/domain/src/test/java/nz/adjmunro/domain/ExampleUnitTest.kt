@@ -1,4 +1,4 @@
-package nz.adjmunro.mylibrary
+package nz.adjmunro.domain
 
 import org.junit.Test
 

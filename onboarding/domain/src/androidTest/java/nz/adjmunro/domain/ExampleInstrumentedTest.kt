@@ -1,4 +1,4 @@
-package nz.adjmunro.mylibrary
+package nz.adjmunro.domain
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

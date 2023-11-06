@@ -1,7 +1,7 @@
 plugins {
     `android-library`
     `kotlin-android`
-    `kotlin-kapt`
+    id(Ksp.kotlinSymbolProcessing)
 }
 
 apply(from = "$rootDir/base-module.gradle")
@@ -17,7 +17,7 @@ dependencies {
     implementation(Retrofit.okHttpLoggingInterceptor)
     implementation(Retrofit.moshiConverter)
 
-    kapt(Room.roomCompiler)
+    ksp(Room.roomCompiler)
     implementation(Room.roomKtx)
     implementation(Room.roomRuntime)
 }

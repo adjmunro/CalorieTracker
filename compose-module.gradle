@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+apply plugin: Ksp.kotlinSymbolProcessing
 apply plugin: 'kotlin-parcelize'
 
 android {
@@ -49,7 +49,7 @@ dependencies {
     implementation Compose.viewModelCompose
     implementation Compose.activityCompose
 
-    kapt Hilt.hiltCompiler
+    ksp Hilt.hiltCompiler
     implementation Hilt.hiltAndroid
 
     testImplementation Testing.junit4

@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
-    id("kotlin-kapt")
+    id(Ksp.kotlinSymbolProcessing)
 }
 
 android {
@@ -59,7 +59,7 @@ dependencies {
     implementation(Compose.activityCompose)
 
     implementation(Hilt.hiltAndroid)
-    kapt(Hilt.hiltCompiler)
+    ksp(Hilt.hiltCompiler)
 
     implementation(project(Modules.core))
     implementation(project(Modules.onboardingPresentation))
@@ -80,7 +80,7 @@ dependencies {
     implementation(Retrofit.okHttpLoggingInterceptor)
     implementation(Retrofit.moshiConverter)
 
-    kapt(Room.roomCompiler)
+    ksp(Room.roomCompiler)
     implementation(Room.roomKtx)
     implementation(Room.roomRuntime)
 
@@ -102,6 +102,6 @@ dependencies {
     androidTestImplementation(Testing.mockkAndroid)
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.hiltTesting)
-    kaptAndroidTest(Hilt.hiltCompiler)
+    kspAndroidTest(Hilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
 }

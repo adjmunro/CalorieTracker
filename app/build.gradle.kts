@@ -28,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_18
-        targetCompatibility = JavaVersion.VERSION_18
+        sourceCompatibility = Build.javaCompatibilityVersion
+        targetCompatibility = Build.javaCompatibilityVersion
     }
     kotlinOptions {
-        jvmTarget = "18"
+        jvmTarget = Build.jvmTarget
     }
     buildFeatures {
         compose = true

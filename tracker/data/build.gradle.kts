@@ -6,7 +6,7 @@ plugins {
 
 apply(from = "$rootDir/base-module.gradle")
 
-android.namespace = "nz.adjmunro.data"
+android.namespace = "nz.adjmunro.tracker.data"
 
 dependencies {
     implementation(project(Modules.core))

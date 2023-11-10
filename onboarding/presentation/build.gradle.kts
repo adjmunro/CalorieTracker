@@ -5,7 +5,7 @@ plugins {
 
 apply(from = "$rootDir/compose-module.gradle")
 
-android.namespace = "nz.adjmunro.presentation"
+android.namespace = "nz.adjmunro.onboarding.presentation"
 
 dependencies {
     implementation(project(Modules.core))

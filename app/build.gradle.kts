@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "nz.adjmunro.calorytracker"
+    namespace = "nz.adjmunro.calorietracker"
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {

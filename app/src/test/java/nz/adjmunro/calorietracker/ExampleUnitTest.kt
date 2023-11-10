@@ -1,4 +1,4 @@
-package nz.adjmunro.calorytracker
+package nz.adjmunro.calorietracker
 
 import org.junit.Test
 

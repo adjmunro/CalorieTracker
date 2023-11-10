@@ -1,4 +1,4 @@
-package nz.adjmunro.calorytracker
+package nz.adjmunro.calorietracker
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import nz.adjmunro.calorytracker.navigation.navigate
-import nz.adjmunro.calorytracker.ui.theme.CaloryTrackerTheme
+import nz.adjmunro.calorietracker.navigation.navigate
+import nz.adjmunro.calorietracker.ui.theme.CaloryTrackerTheme
 import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.onboarding.presentation.welcome.WelcomeScreen
 

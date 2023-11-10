@@ -1,4 +1,4 @@
-package nz.adjmunro.calorytracker.ui.theme
+package nz.adjmunro.calorietracker.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

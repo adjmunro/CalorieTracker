@@ -1,4 +1,4 @@
-package nz.adjmunro.calorytracker.navigation
+package nz.adjmunro.calorietracker.navigation
 
 import androidx.navigation.NavController
 import nz.adjmunro.core.util.UiEvent

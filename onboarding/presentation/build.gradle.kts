@@ -9,5 +9,6 @@ android.namespace = "nz.adjmunro.onboarding.presentation"
 
 dependencies {
     implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
     implementation(project(Modules.onboardingDomain))
 }

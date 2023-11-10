@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: Ksp.kotlinSymbolProcessing
 apply plugin: 'kotlin-parcelize'
 
+// Can only inherit gradle logic from groovy files
+
 android {
     compileSdk ProjectConfig.compileSdk
 

@@ -14,11 +14,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import nz.adjmunro.core.R
+import nz.adjmunro.core.navigation.Routes
+import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.welcome.components.ActionButton
 
 @Composable
-fun WelcomeScreen() = Column(
+fun WelcomeScreen(
+    onNavigate: (Navigate) -> Unit = {},
+) = Column(
     modifier = Modifier
         .fillMaxSize()
         .padding(LocalSpacing.current.medium_16),
@@ -37,7 +41,7 @@ fun WelcomeScreen() = Column(
         text = stringResource(id = R.string.next),
         modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
-
+        onNavigate(Navigate(Routes.AGE))
     }
 
 }

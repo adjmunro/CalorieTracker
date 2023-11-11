@@ -1,4 +1,4 @@
-package nz.adjmunro.onboarding.presentation.welcome.components
+package nz.adjmunro.onboarding.presentation.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape

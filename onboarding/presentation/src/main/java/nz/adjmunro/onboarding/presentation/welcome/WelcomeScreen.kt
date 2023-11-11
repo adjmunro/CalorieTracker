@@ -17,7 +17,7 @@ import nz.adjmunro.core.R
 import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
-import nz.adjmunro.onboarding.presentation.welcome.components.ActionButton
+import nz.adjmunro.onboarding.presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(

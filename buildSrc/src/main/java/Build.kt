@@ -1,14 +1,17 @@
 import org.gradle.api.JavaVersion
 
+typealias KspId = String
+typealias ProjectPluginId = String
+typealias ModulePluginId = String
+typealias ClasspathId = String
+typealias DependencyVersion = String
+typealias ImplementationId = String
+
 object Build {
     private const val androidBuildToolsVersion = "8.1.3"
     const val androidBuildTools = "com.android.tools.build:gradle:$androidBuildToolsVersion"
 
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.version}"
-
-    private const val hiltAndroidGradlePluginVersion = "2.48"
-    const val hiltAndroidGradlePlugin =
-        "com.google.dagger:hilt-android-gradle-plugin:$hiltAndroidGradlePluginVersion"
 
     // Temp
     const val kspGradlePlugin = "${Ksp.kotlinSymbolProcessing}:symbol-processing-api:${Ksp.version}"

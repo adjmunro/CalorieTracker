@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
-    ksp Hilt.hiltCompiler
-    implementation Hilt.hiltAndroid
+    implementation Hilt.android
+    ksp Hilt.androidCompiler
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt

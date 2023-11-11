@@ -44,15 +44,15 @@ dependencies {
     implementation Compose.compiler
     implementation Compose.ui
     implementation Compose.uiToolingPreview
-    implementation Compose.hiltNavigationCompose
     implementation Compose.material
     implementation Compose.runtime
     implementation Compose.navigation
     implementation Compose.viewModelCompose
     implementation Compose.activityCompose
 
-    ksp Hilt.hiltCompiler
-    implementation Hilt.hiltAndroid
+    implementation Hilt.navigationCompose//Hilt.Androidx.navigationCompose
+    implementation Hilt.android
+    ksp Hilt.androidCompiler
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt

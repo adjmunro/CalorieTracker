@@ -51,15 +51,15 @@ dependencies {
     implementation(Compose.compiler)
     implementation(Compose.ui)
     implementation(Compose.uiToolingPreview)
-    implementation(Compose.hiltNavigationCompose)
     implementation(Compose.material)
     implementation(Compose.runtime)
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
 
-    implementation(Hilt.hiltAndroid)
-    ksp(Hilt.hiltCompiler)
+    implementation(Hilt.navigationCompose)//Hilt.Androidx.navigationCompose)
+    implementation(Hilt.android)
+    ksp(Hilt.androidCompiler)
 
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
@@ -103,6 +103,6 @@ dependencies {
     androidTestImplementation(Testing.mockkAndroid)
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.hiltTesting)
-    kspAndroidTest(Hilt.hiltCompiler)
+    kspAndroidTest(Hilt.androidCompiler)
     androidTestImplementation(Testing.testRunner)
 }

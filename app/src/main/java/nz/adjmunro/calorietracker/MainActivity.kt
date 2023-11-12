@@ -19,6 +19,7 @@ import nz.adjmunro.onboarding.presentation.age.AgeScreen
 import nz.adjmunro.onboarding.presentation.gender.GenderScreen
 import nz.adjmunro.onboarding.presentation.goal.GoalTypeScreen
 import nz.adjmunro.onboarding.presentation.height.HeightScreen
+import nz.adjmunro.onboarding.presentation.nutrient.NutrientGoalScreen
 import nz.adjmunro.onboarding.presentation.weight.WeightScreen
 import nz.adjmunro.onboarding.presentation.welcome.WelcomeScreen
 
@@ -64,7 +65,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Routes.NUTRIENT_GOAL) {
-
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate,
+                            )
                         }
                         composable(Routes.ACTIVITY) {
                             ActivityLevelScreen(onNavigate = navController::navigate)

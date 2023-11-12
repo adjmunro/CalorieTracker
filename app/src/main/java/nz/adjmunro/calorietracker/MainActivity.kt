@@ -14,8 +14,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import nz.adjmunro.calorietracker.navigation.navigate
 import nz.adjmunro.calorietracker.ui.theme.CaloryTrackerTheme
 import nz.adjmunro.core.navigation.Routes
+import nz.adjmunro.onboarding.presentation.activity.ActivityLevelScreen
 import nz.adjmunro.onboarding.presentation.age.AgeScreen
 import nz.adjmunro.onboarding.presentation.gender.GenderScreen
+import nz.adjmunro.onboarding.presentation.goal.GoalTypeScreen
 import nz.adjmunro.onboarding.presentation.height.HeightScreen
 import nz.adjmunro.onboarding.presentation.weight.WeightScreen
 import nz.adjmunro.onboarding.presentation.welcome.WelcomeScreen
@@ -65,10 +67,10 @@ class MainActivity : ComponentActivity() {
 
                         }
                         composable(Routes.ACTIVITY) {
-
+                            ActivityLevelScreen(onNavigate = navController::navigate)
                         }
                         composable(Routes.GOAL) {
-
+                            GoalTypeScreen(onNavigate = navController::navigate)
                         }
                         composable(Routes.TRACKER_OVERVIEW) {
 

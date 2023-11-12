@@ -10,6 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import nz.adjmunro.core.data.preferences.DefaultPreferences
 import nz.adjmunro.core.domain.preferences.Preferences
+import nz.adjmunro.core.domain.usecase.FilterOnlyDigits
 import javax.inject.Singleton
 
 @Module
@@ -29,5 +30,9 @@ object AppModule {
     ): Preferences = DefaultPreferences(
         sharedPref = sharedPreferences
     )
+
+    @Provides
+    @Singleton
+    fun providesFilterOnlyDigitsUseCase(): FilterOnlyDigits = FilterOnlyDigits()
 
 }

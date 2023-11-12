@@ -16,6 +16,8 @@ import nz.adjmunro.calorietracker.ui.theme.CaloryTrackerTheme
 import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.onboarding.presentation.age.AgeScreen
 import nz.adjmunro.onboarding.presentation.gender.GenderScreen
+import nz.adjmunro.onboarding.presentation.height.HeightScreen
+import nz.adjmunro.onboarding.presentation.weight.WeightScreen
 import nz.adjmunro.onboarding.presentation.welcome.WelcomeScreen
 
 @AndroidEntryPoint
@@ -48,10 +50,16 @@ class MainActivity : ComponentActivity() {
                             GenderScreen(onNavigate = navController::navigate)
                         }
                         composable(Routes.HEIGHT) {
-
+                            HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate,
+                            )
                         }
                         composable(Routes.WEIGHT) {
-
+                            WeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate,
+                            )
                         }
                         composable(Routes.NUTRIENT_GOAL) {
 

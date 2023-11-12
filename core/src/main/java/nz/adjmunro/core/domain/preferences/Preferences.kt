@@ -8,7 +8,7 @@ import nz.adjmunro.core.domain.models.UserInfo
 typealias PreferenceKey = String
 typealias Age = Int
 typealias Height = Int
-typealias Weight = Int
+typealias Weight = Float
 typealias CarbRatio = Float
 typealias ProteinRatio = Float
 typealias FatRatio = Float

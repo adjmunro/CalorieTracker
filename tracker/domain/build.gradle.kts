@@ -9,4 +9,5 @@ android.namespace = "nz.adjmunro.tracker.domain"
 
 dependencies {
     implementation(project(Modules.core))
+    implementation(Coroutines.coroutines)
 }

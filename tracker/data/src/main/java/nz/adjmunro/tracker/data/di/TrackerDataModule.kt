@@ -9,6 +9,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import nz.adjmunro.tracker.data.local.TrackerDatabase
 import nz.adjmunro.tracker.data.remote.OpenFoodApi
+import nz.adjmunro.tracker.data.repository.TrackerRepositoryImpl
+import nz.adjmunro.tracker.domain.repository.TrackerRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,11 +23,10 @@ import javax.inject.Singleton
 class TrackerDataModule {
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(interceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })
-        .build()
+    fun provideOkHttpClient(): OkHttpClient =
+        OkHttpClient.Builder().addInterceptor(interceptor = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }).build()
 
     @Provides
     @Singleton
@@ -41,9 +42,18 @@ class TrackerDataModule {
     fun providesTrackerDatabase(
         @ApplicationContext context: Context,
     ): TrackerDatabase = Room.databaseBuilder(
-            context = context,
-            klass = TrackerDatabase::class.java,
-            name = "tracker_db",
-        )
-        .build()
+        context = context,
+        klass = TrackerDatabase::class.java,
+        name = "tracker_db",
+    ).build()
+
+    @Provides
+    @Singleton
+    fun provideTrackerRepository(
+        api: OpenFoodApi,
+        db: TrackerDatabase,
+    ): TrackerRepository = TrackerRepositoryImpl(
+        dao = db.dao,
+        api = api,
+    )
 }

@@ -24,6 +24,8 @@ interface Preferences {
     fun saveProteinRatio(ratio: ProteinRatio)
     fun saveFatRatio(ratio: FatRatio)
     fun loadUserInfo(): UserInfo
+    fun saveShouldShowOnboarding(shouldShowOnboarding: Boolean)
+    fun loadShouldShowOnboarding(): Boolean
 
     companion object {
         const val KEY_GENDER: PreferenceKey = "gender"
@@ -35,5 +37,6 @@ interface Preferences {
         const val KEY_CARB_RATIO: PreferenceKey = "carb_ratio"
         const val KEY_PROTEIN_RATIO: PreferenceKey = "protein_ratio"
         const val KEY_FAT_RATIO: PreferenceKey = "fat_ratio"
+        const val KEY_SHOULD_SHOW_ONBOARDING: PreferenceKey = "should_show_onboarding"
     }
 }

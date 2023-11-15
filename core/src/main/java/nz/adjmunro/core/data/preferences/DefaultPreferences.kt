@@ -53,6 +53,13 @@ class DefaultPreferences(
         .putFloat(Preferences.KEY_FAT_RATIO, ratio)
         .apply()
 
+    override fun saveShouldShowOnboarding(shouldShowOnboarding: Boolean) = sharedPref.edit()
+        .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShowOnboarding)
+        .apply()
+
+    override fun loadShouldShowOnboarding(): Boolean =
+        sharedPref.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
+
     override fun loadUserInfo(): UserInfo {
         val gender = sharedPref.getString(Preferences.KEY_GENDER, null)
         val age = sharedPref.getInt(Preferences.KEY_AGE, -1)

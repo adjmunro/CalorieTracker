@@ -1,4 +1,4 @@
-package nz.adjmunro.calorietracker.ui.theme
+package nz.adjmunro.coreui
 
 import androidx.compose.ui.graphics.Color
 

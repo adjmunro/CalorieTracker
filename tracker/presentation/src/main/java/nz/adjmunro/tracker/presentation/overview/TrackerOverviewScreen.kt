@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -26,19 +27,27 @@ fun TrackerOverviewScreen(
     viewModel: TrackerOverviewViewModel = hiltViewModel(),
     onNavigate: (Navigate) -> Unit,
 ) {
+    val context = LocalContext.current
+
+    LaunchedEffect(key1 = context) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is Navigate -> onNavigate(event)
+                else -> Unit
+            }
+        }
+    }
 
     TrackerOverviewScreen(
         state = viewModel.state,
         onEvent = viewModel::onEvent,
-        onNavigate = onNavigate,
     )
 }
 
 @Composable
-fun TrackerOverviewScreen(
+private fun TrackerOverviewScreen(
     state: TrackerOverviewState = TrackerOverviewState(),
     onEvent: (TrackerOverviewEvent) -> Unit = {},
-    onNavigate: (Navigate) -> Unit = {},
 ) = LazyColumn(
     modifier = Modifier
         .fillMaxSize()

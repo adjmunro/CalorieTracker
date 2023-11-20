@@ -14,7 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
 import nz.adjmunro.calorietracker.navigation.navigate
-import nz.adjmunro.calorietracker.ui.theme.CaloryTrackerTheme
+import nz.adjmunro.calorietracker.ui.theme.CalorieTrackerTheme
 import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.onboarding.presentation.activity.ActivityLevelScreen
 import nz.adjmunro.onboarding.presentation.age.AgeScreen
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CaloryTrackerTheme {
+            CalorieTrackerTheme {
                 val navController = rememberNavController()
                 val scaffoldState = rememberScaffoldState()
                 Scaffold(

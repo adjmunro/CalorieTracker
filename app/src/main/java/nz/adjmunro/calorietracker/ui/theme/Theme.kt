@@ -42,7 +42,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun CaloryTrackerTheme(
+fun CalorieTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit,
 ) {

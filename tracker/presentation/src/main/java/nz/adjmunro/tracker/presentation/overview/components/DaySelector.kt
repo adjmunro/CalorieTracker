@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import nz.adjmunro.core.R.string
+import nz.adjmunro.core.util.CoreString
 import java.time.LocalDate
 
 @Composable
@@ -30,7 +30,7 @@ fun DaySelector(
     IconButton(onClick = onPreviousDayClicked) {
         Icon(
             imageVector = Icons.Default.ArrowBack,
-            contentDescription = stringResource(id = string.previous_day)
+            contentDescription = stringResource(id = CoreString.previous_day)
         )
     }
     Text(
@@ -40,7 +40,7 @@ fun DaySelector(
     IconButton(onClick = onNextDayClicked) {
         Icon(
             imageVector = Icons.Default.ArrowForward,
-            contentDescription = stringResource(id = string.next_day)
+            contentDescription = stringResource(id = CoreString.next_day)
         )
     }
 }

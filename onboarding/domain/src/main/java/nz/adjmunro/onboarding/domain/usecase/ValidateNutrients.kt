@@ -1,9 +1,9 @@
 package nz.adjmunro.onboarding.domain.usecase
 
-import nz.adjmunro.core.R.string
 import nz.adjmunro.core.domain.preferences.CarbRatio
 import nz.adjmunro.core.domain.preferences.FatRatio
 import nz.adjmunro.core.domain.preferences.ProteinRatio
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.onboarding.domain.models.CarbInput
 import nz.adjmunro.onboarding.domain.models.FatInput
@@ -20,10 +20,10 @@ class ValidateNutrients {
         val fatRatio = fatRatioInput.toIntOrNull()
 
         if (carbRatio == null || proteinRatio == null || fatRatio == null) {
-            return Result.Error(UiText.StringResource(string.error_invalid_values))
+            return Result.Error(UiText.StringResource(CoreString.error_invalid_values))
         }
         if (carbRatio + proteinRatio + fatRatio != 100) {
-            return Result.Error(UiText.StringResource(string.error_not_100_percent))
+            return Result.Error(UiText.StringResource(CoreString.error_not_100_percent))
         }
 
         return Result.Success(

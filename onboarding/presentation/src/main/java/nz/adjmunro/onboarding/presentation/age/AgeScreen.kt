@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import nz.adjmunro.core.R.string
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.core.util.UiEvent.ShowSnackbar
 import nz.adjmunro.coreui.LocalSpacing
@@ -69,7 +69,7 @@ private fun AgeScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(id = string.whats_your_age),
+            text = stringResource(id = CoreString.whats_your_age),
             style = MaterialTheme.typography.h3,
         )
 
@@ -78,12 +78,12 @@ private fun AgeScreen(
         UnitTextField(
             value = ageInput,
             onValueChange = onAgeChanged,
-            unit = stringResource(id = string.years),
+            unit = stringResource(id = CoreString.years),
         )
     }
 
     ActionButton(
-        text = stringResource(id = string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = onNextClicked,
     )

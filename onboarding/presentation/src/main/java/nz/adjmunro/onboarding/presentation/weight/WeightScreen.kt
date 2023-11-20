@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import nz.adjmunro.core.R
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.core.util.UiEvent.ShowSnackbar
 import nz.adjmunro.coreui.LocalSpacing
@@ -69,7 +69,7 @@ private fun WeightScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(id = R.string.whats_your_weight),
+            text = stringResource(id = CoreString.whats_your_weight),
             style = MaterialTheme.typography.h3,
         )
 
@@ -78,12 +78,12 @@ private fun WeightScreen(
         UnitTextField(
             value = weightInput,
             onValueChange = onWeightChanged,
-            unit = stringResource(id = R.string.kg),
+            unit = stringResource(id = CoreString.kg),
         )
     }
 
     ActionButton(
-        text = stringResource(id = R.string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = onNextClicked,
     )

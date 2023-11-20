@@ -9,10 +9,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import nz.adjmunro.core.R
 import nz.adjmunro.core.domain.preferences.Preferences
 import nz.adjmunro.core.domain.preferences.Weight
 import nz.adjmunro.core.navigation.Routes
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.core.util.UiText
@@ -42,7 +42,7 @@ class WeightViewModel @Inject constructor(
             val weightNumber: Weight = weight.toFloatOrNull() ?: kotlin.run {
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
-                        UiText.StringResource(resId = R.string.error_weight_cant_be_empty)
+                        UiText.StringResource(resId = CoreString.error_weight_cant_be_empty)
                     )
                 )
                 return@launch

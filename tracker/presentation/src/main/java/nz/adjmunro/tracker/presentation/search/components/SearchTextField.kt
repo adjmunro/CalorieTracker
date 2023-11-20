@@ -26,13 +26,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.coreui.LocalSpacing
 
 @Composable
 fun SearchTextField(
     text: String,
     modifier: Modifier = Modifier,
-    hint: String = stringResource(id = nz.adjmunro.core.R.string.search),
+    hint: String = stringResource(id = CoreString.search),
     shouldShowHint: Boolean = false,
     onFocusChanged: (FocusState) -> Unit = { _ -> },
     onSearch: () -> Unit = {},
@@ -80,7 +81,7 @@ fun SearchTextField(
     ) {
         Icon(
             imageVector = Icons.Default.Search,
-            contentDescription = stringResource(id = nz.adjmunro.core.R.string.search),
+            contentDescription = stringResource(id = CoreString.search),
         )
     }
 }

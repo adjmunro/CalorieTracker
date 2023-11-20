@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import nz.adjmunro.core.R
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.core.util.UiEvent.ShowSnackbar
 import nz.adjmunro.coreui.LocalSpacing
@@ -68,7 +68,7 @@ private fun NutrientGoalScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(id = R.string.what_are_your_nutrient_goals),
+            text = stringResource(id = CoreString.what_are_your_nutrient_goals),
             style = MaterialTheme.typography.h3,
         )
 
@@ -76,7 +76,7 @@ private fun NutrientGoalScreen(
 
         UnitTextField(
             value = nutrients.carbRatio,
-            unit = stringResource(id = R.string.percent_carbs),
+            unit = stringResource(id = CoreString.percent_carbs),
             onValueChange = {
                 onEvent(NutrientGoalEvent.OnCarbRationChanged(it))
             },
@@ -86,7 +86,7 @@ private fun NutrientGoalScreen(
 
         UnitTextField(
             value = nutrients.proteinRatio,
-            unit = stringResource(id = R.string.percent_proteins),
+            unit = stringResource(id = CoreString.percent_proteins),
             onValueChange = {
                 onEvent(NutrientGoalEvent.OnProteinRatioChanged(it))
             },
@@ -96,7 +96,7 @@ private fun NutrientGoalScreen(
 
         UnitTextField(
             value = nutrients.fatRatio,
-            unit = stringResource(id = R.string.percent_fats),
+            unit = stringResource(id = CoreString.percent_fats),
             onValueChange = {
                 onEvent(NutrientGoalEvent.OnFatRatioChanged(it))
             },
@@ -104,7 +104,7 @@ private fun NutrientGoalScreen(
     }
 
     ActionButton(
-        text = stringResource(id = R.string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = { onEvent(NutrientGoalEvent.OnNextClicked) },
     )

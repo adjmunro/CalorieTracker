@@ -24,6 +24,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.tracker.presentation.components.NutrientInfo
@@ -66,7 +67,7 @@ fun ExpandableMeal(
                 )
                 Icon(
                     imageVector = if (meal.isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-                    contentDescription = if (meal.isExpanded) stringResource(id = nz.adjmunro.core.R.string.collapse) else stringResource(id = nz.adjmunro.core.R.string.extend),
+                    contentDescription = if (meal.isExpanded) stringResource(id = CoreString.collapse) else stringResource(id = CoreString.extend),
                 )
                 Spacer(modifier = Modifier.height(LocalSpacing.current.small_8))
                 Row(
@@ -75,26 +76,26 @@ fun ExpandableMeal(
                 ) {
                     UnitDisplay(
                         amount = meal.calories,
-                        unit = UiText.of(value = nz.adjmunro.core.R.string.kcal),
+                        unit = UiText.of(value = CoreString.kcal),
                         amountTextSize = 30.sp,
                     )
                     Row {
                         NutrientInfo(
-                            name = stringResource(id = nz.adjmunro.core.R.string.carbs),
+                            name = stringResource(id = CoreString.carbs),
                             amount = meal.carbs,
-                            unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                            unit = UiText.of(value = CoreString.grams),
                         )
                         Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
                         NutrientInfo(
-                            name = stringResource(id = nz.adjmunro.core.R.string.protein),
+                            name = stringResource(id = CoreString.protein),
                             amount = meal.protein,
-                            unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                            unit = UiText.of(value = CoreString.grams),
                         )
                         Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
                         NutrientInfo(
-                            name = stringResource(id = nz.adjmunro.core.R.string.fat),
+                            name = stringResource(id = CoreString.fat),
                             amount = meal.fat,
-                            unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                            unit = UiText.of(value = CoreString.grams),
                         )
                     }
                 }

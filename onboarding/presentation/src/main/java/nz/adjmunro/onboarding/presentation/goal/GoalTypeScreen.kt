@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import nz.adjmunro.core.R
 import nz.adjmunro.core.domain.models.GoalType
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.components.ActionButton
@@ -63,7 +63,7 @@ private fun GoalTypeScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(id = R.string.lose_keep_or_gain_weight),
+            text = stringResource(id = CoreString.lose_keep_or_gain_weight),
             style = MaterialTheme.typography.h3,
         )
 
@@ -71,7 +71,7 @@ private fun GoalTypeScreen(
 
         Row {
             GoalTypeButton(
-                labelRes = R.string.lose,
+                labelRes = CoreString.lose,
                 buttonGoalType = GoalType.LoseWeight,
                 selectedGoalType = selectedGoalType,
                 onGoalTypeClicked = onGoalTypeClicked,
@@ -80,7 +80,7 @@ private fun GoalTypeScreen(
             Spacer(modifier = Modifier.width(LocalSpacing.current.medium_16))
 
             GoalTypeButton(
-                labelRes = R.string.keep,
+                labelRes = CoreString.keep,
                 buttonGoalType = GoalType.KeepWeight,
                 selectedGoalType = selectedGoalType,
                 onGoalTypeClicked = onGoalTypeClicked,
@@ -89,7 +89,7 @@ private fun GoalTypeScreen(
             Spacer(modifier = Modifier.width(LocalSpacing.current.medium_16))
 
             GoalTypeButton(
-                labelRes = R.string.gain,
+                labelRes = CoreString.gain,
                 buttonGoalType = GoalType.GainWeight,
                 selectedGoalType = selectedGoalType,
                 onGoalTypeClicked = onGoalTypeClicked,
@@ -98,7 +98,7 @@ private fun GoalTypeScreen(
     }
 
     ActionButton(
-        text = stringResource(id = R.string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = onNextClicked,
     )

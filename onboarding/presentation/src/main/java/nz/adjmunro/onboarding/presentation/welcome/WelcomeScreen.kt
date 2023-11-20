@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import nz.adjmunro.core.R
 import nz.adjmunro.core.navigation.Routes
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.components.ActionButton
@@ -30,7 +30,7 @@ fun WelcomeScreen(
     horizontalAlignment = Alignment.CenterHorizontally,
 ) {
     Text(
-        text = stringResource(id = R.string.welcome_text),
+        text = stringResource(id = CoreString.welcome_text),
         textAlign = TextAlign.Center,
         style = MaterialTheme.typography.h1,
     )
@@ -38,7 +38,7 @@ fun WelcomeScreen(
     Spacer(modifier = Modifier.height(LocalSpacing.current.medium_16))
 
     ActionButton(
-        text = stringResource(id = R.string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.CenterHorizontally),
     ) { onNavigate(Navigate(Routes.GENDER)) }
 

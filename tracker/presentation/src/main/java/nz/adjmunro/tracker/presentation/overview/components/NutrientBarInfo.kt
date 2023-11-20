@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.tracker.presentation.components.UnitDisplay
 
@@ -94,7 +95,7 @@ fun NutrientBarInfo(
             }
             UnitDisplay(
                 amount = value,
-                unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                unit = UiText.of(value = CoreString.grams),
                 amountColor = textColor,
                 unitColor = textColor,
             )

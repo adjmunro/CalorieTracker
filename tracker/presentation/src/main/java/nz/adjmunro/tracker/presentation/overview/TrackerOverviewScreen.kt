@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.tracker.presentation.components.NutrientsHeader
@@ -90,7 +91,7 @@ private fun TrackerOverviewScreen(
                 }
                 AddButton(
                     text = stringResource(
-                        id = nz.adjmunro.core.R.string.add_meal,
+                        id = CoreString.add_meal,
                         meal.name.asString(LocalContext.current),
                     ),
                     modifier = Modifier.fillMaxWidth(),

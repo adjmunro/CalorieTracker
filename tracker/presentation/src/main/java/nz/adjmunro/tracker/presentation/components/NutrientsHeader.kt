@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.coreui.CarbColor
 import nz.adjmunro.coreui.FatColor
@@ -60,20 +61,20 @@ fun NutrientsHeader(
         UnitDisplay(
             amount = animatedCalorieCount.value,
             modifier = Modifier.align(Alignment.Bottom),
-            unit = UiText.of(nz.adjmunro.core.R.string.kcal),
+            unit = UiText.of(CoreString.kcal),
             amountColor = MaterialTheme.colors.onPrimary,
             amountTextSize = 40.sp,
             unitColor = MaterialTheme.colors.onPrimary,
         )
         Column {
             Text(
-                text = stringResource(id = nz.adjmunro.core.R.string.your_goal),
+                text = stringResource(id = CoreString.your_goal),
                 color = MaterialTheme.colors.onPrimary,
                 style = MaterialTheme.typography.body2,
             )
             UnitDisplay(
                 amount = animatedCalorieCount.value,
-                unit = UiText.of(nz.adjmunro.core.R.string.kcal),
+                unit = UiText.of(CoreString.kcal),
                 amountColor = MaterialTheme.colors.onPrimary,
                 amountTextSize = 40.sp,
                 unitColor = MaterialTheme.colors.onPrimary,
@@ -103,21 +104,21 @@ fun NutrientsHeader(
         NutrientBarInfo(
             value = state.totalCarbs,
             goal = state.carbsGoal,
-            name = UiText.of(nz.adjmunro.core.R.string.carbs),
+            name = UiText.of(CoreString.carbs),
             color = CarbColor,
             modifier = Modifier.size(90.dp),
         )
         NutrientBarInfo(
             value = state.totalProtein,
             goal = state.proteinGoal,
-            name = UiText.of(nz.adjmunro.core.R.string.protein),
+            name = UiText.of(CoreString.protein),
             color = ProteinColor,
             modifier = Modifier.size(90.dp),
         )
         NutrientBarInfo(
             value = state.totalFat,
             goal = state.fatGoal,
-            name = UiText.of(nz.adjmunro.core.R.string.fat),
+            name = UiText.of(CoreString.fat),
             color = FatColor,
             modifier = Modifier.size(90.dp),
         )

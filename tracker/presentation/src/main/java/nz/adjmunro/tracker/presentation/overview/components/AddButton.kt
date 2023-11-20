@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.coreui.LocalSpacing
 
 @Composable
@@ -43,7 +44,7 @@ fun AddButton(
 ) {
     Icon(
         imageVector = Icons.Default.Add,
-        contentDescription = stringResource(id = nz.adjmunro.core.R.string.add),
+        contentDescription = stringResource(id = CoreString.add),
         tint = color,
     )
 

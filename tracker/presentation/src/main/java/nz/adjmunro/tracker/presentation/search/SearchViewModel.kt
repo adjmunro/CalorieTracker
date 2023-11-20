@@ -10,6 +10,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.usecase.FilterOnlyDigits
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.tracker.domain.usecase.TrackerUseCases
@@ -87,7 +88,7 @@ class SearchViewModel @Inject constructor(
                 }
                 .onFailure {
                     state = state.copy(isSearching = false)
-                    _uiEvent.send(UiEvent.ShowSnackbar(UiText.of(nz.adjmunro.core.R.string.error_something_went_wrong)))
+                    _uiEvent.send(UiEvent.ShowSnackbar(UiText.of(CoreString.error_something_went_wrong)))
                 }
         }
     }

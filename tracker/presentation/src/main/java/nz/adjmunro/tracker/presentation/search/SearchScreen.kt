@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.NavigateUp
 import nz.adjmunro.core.util.UiEvent.ShowSnackbar
 import nz.adjmunro.coreui.LocalSpacing
@@ -89,7 +90,7 @@ private fun SearchScreen(
 ) {
     Text(
         text = stringResource(
-            id = nz.adjmunro.core.R.string.add_meal,
+            id = CoreString.add_meal,
             mealName
         ),
         style = MaterialTheme.typography.h2,

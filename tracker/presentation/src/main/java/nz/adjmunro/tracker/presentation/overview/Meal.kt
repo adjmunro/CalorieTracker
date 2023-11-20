@@ -1,6 +1,8 @@
 package nz.adjmunro.tracker.presentation.overview
 
 import androidx.annotation.DrawableRes
+import nz.adjmunro.core.util.CoreDrawable
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.tracker.domain.model.MealType
 
@@ -17,23 +19,23 @@ data class Meal(
     companion object {
         val default: List<Meal> = listOf(
             Meal(
-                name = UiText.StringResource(nz.adjmunro.core.R.string.breakfast),
-                drawableRes = nz.adjmunro.core.R.drawable.ic_breakfast,
+                name = UiText.StringResource(CoreString.breakfast),
+                drawableRes = CoreDrawable.ic_breakfast,
                 mealType = MealType.Breakfast,
             ),
             Meal(
-                name = UiText.StringResource(nz.adjmunro.core.R.string.lunch),
-                drawableRes = nz.adjmunro.core.R.drawable.ic_lunch,
+                name = UiText.StringResource(CoreString.lunch),
+                drawableRes = CoreDrawable.ic_lunch,
                 mealType = MealType.Lunch,
             ),
             Meal(
-                name = UiText.StringResource(nz.adjmunro.core.R.string.dinner),
-                drawableRes = nz.adjmunro.core.R.drawable.ic_dinner,
+                name = UiText.StringResource(CoreString.dinner),
+                drawableRes = CoreDrawable.ic_dinner,
                 mealType = MealType.Dinner,
             ),
             Meal(
-                name = UiText.StringResource(nz.adjmunro.core.R.string.snacks),
-                drawableRes = nz.adjmunro.core.R.drawable.ic_snack,
+                name = UiText.StringResource(CoreString.snacks),
+                drawableRes = CoreDrawable.ic_snack,
                 mealType = MealType.Snack,
             ),
         )

@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import nz.adjmunro.core.R
 import nz.adjmunro.core.domain.models.ActivityLevel
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.components.ActionButton
@@ -63,7 +63,7 @@ private fun ActivityLevelScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(id = R.string.whats_your_activity_level),
+            text = stringResource(id = CoreString.whats_your_activity_level),
             style = MaterialTheme.typography.h3,
         )
 
@@ -71,7 +71,7 @@ private fun ActivityLevelScreen(
 
         Row {
             ActivityLevelButton(
-                labelRes = R.string.low,
+                labelRes = CoreString.low,
                 buttonActivityLevel = ActivityLevel.LowActivity,
                 selectedActivityLevel = selectedActivityLevel,
                 onActivityLevelClicked = onActivityLevelClicked,
@@ -80,7 +80,7 @@ private fun ActivityLevelScreen(
             Spacer(modifier = Modifier.width(LocalSpacing.current.medium_16))
 
             ActivityLevelButton(
-                labelRes = R.string.medium,
+                labelRes = CoreString.medium,
                 buttonActivityLevel = ActivityLevel.MediumActivity,
                 selectedActivityLevel = selectedActivityLevel,
                 onActivityLevelClicked = onActivityLevelClicked,
@@ -89,7 +89,7 @@ private fun ActivityLevelScreen(
             Spacer(modifier = Modifier.width(LocalSpacing.current.medium_16))
 
             ActivityLevelButton(
-                labelRes = R.string.high,
+                labelRes = CoreString.high,
                 buttonActivityLevel = ActivityLevel.HighActivity,
                 selectedActivityLevel = selectedActivityLevel,
                 onActivityLevelClicked = onActivityLevelClicked,
@@ -98,7 +98,7 @@ private fun ActivityLevelScreen(
     }
 
     ActionButton(
-        text = stringResource(id = R.string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = onNextClicked,
     )

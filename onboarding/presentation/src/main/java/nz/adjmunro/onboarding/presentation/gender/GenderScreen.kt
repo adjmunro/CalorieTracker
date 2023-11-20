@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import nz.adjmunro.core.R
 import nz.adjmunro.core.domain.models.Gender
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.components.ActionButton
@@ -63,7 +63,7 @@ private fun GenderScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(id = R.string.whats_your_gender),
+            text = stringResource(id = CoreString.whats_your_gender),
             style = MaterialTheme.typography.h3,
         )
 
@@ -71,7 +71,7 @@ private fun GenderScreen(
 
         Row {
             SelectableButton(
-                text = stringResource(id = R.string.male),
+                text = stringResource(id = CoreString.male),
                 isSelected = selectedGender is Gender.Male,
                 color = MaterialTheme.colors.primaryVariant,
                 selectedTextColor = Color.White,
@@ -81,7 +81,7 @@ private fun GenderScreen(
             Spacer(modifier = Modifier.width(LocalSpacing.current.medium_16))
 
             SelectableButton(
-                text = stringResource(id = R.string.female),
+                text = stringResource(id = CoreString.female),
                 isSelected = selectedGender is Gender.Female,
                 color = MaterialTheme.colors.primaryVariant,
                 selectedTextColor = Color.White,
@@ -91,7 +91,7 @@ private fun GenderScreen(
     }
 
     ActionButton(
-        text = stringResource(id = R.string.next),
+        text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.BottomEnd),
         onClick = onNextClicked,
     )

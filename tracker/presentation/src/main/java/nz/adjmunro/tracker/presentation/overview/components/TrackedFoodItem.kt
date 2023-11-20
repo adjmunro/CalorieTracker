@@ -28,12 +28,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import nz.adjmunro.core.util.CoreDrawable
+import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiText
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.tracker.domain.model.TrackedFood
 import nz.adjmunro.tracker.presentation.components.NutrientInfo
 
+@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun TrackedFoodItem(
     trackedFood: TrackedFood,
@@ -54,12 +58,14 @@ fun TrackedFoodItem(
     verticalAlignment = Alignment.CenterVertically,
 ) {
     Image(
-        painter = rememberImagePainter(data = trackedFood.imageUrl,
-                                       builder = {
-                                           crossfade(true)
-                                           error(nz.adjmunro.core.R.drawable.ic_burger)
-                                           fallback(nz.adjmunro.core.R.drawable.ic_burger)
-                                       }),
+        painter = rememberImagePainter(
+            data = trackedFood.imageUrl,
+            builder = {
+                crossfade(true)
+                error(CoreDrawable.ic_burger)
+                fallback(CoreDrawable.ic_burger)
+            },
+        ),
         contentDescription = trackedFood.name,
         contentScale = ContentScale.Crop,
         modifier = Modifier
@@ -85,7 +91,7 @@ fun TrackedFoodItem(
         Spacer(modifier = Modifier.height(LocalSpacing.current.tiny_4))
         Text(
             text = stringResource(
-                id = nz.adjmunro.core.R.string.nutrient_info,
+                id = CoreString.nutrient_info,
                 trackedFood.amount,
                 trackedFood.calories,
             ),
@@ -99,7 +105,7 @@ fun TrackedFoodItem(
     ) {
         Icon(
             imageVector = Icons.Default.Close,
-            contentDescription = stringResource(id = nz.adjmunro.core.R.string.delete),
+            contentDescription = stringResource(id = CoreString.delete),
             modifier = Modifier
                 .align(Alignment.End)
                 .clickable { onDeleteClicked() },
@@ -107,27 +113,27 @@ fun TrackedFoodItem(
         Spacer(modifier = Modifier.height(LocalSpacing.current.tiny_4))
         Row(verticalAlignment = Alignment.CenterVertically) {
             NutrientInfo(
-                name = stringResource(id = nz.adjmunro.core.R.string.carbs),
+                name = stringResource(id = CoreString.carbs),
                 amount = trackedFood.carbs,
-                unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                unit = UiText.of(value = CoreString.grams),
                 amountTextSize = 16.sp,
                 unitTextSize = 12.sp,
                 nameTextStyle = MaterialTheme.typography.body2,
             )
             Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
             NutrientInfo(
-                name = stringResource(id = nz.adjmunro.core.R.string.protein),
+                name = stringResource(id = CoreString.protein),
                 amount = trackedFood.protein,
-                unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                unit = UiText.of(value = CoreString.grams),
                 amountTextSize = 16.sp,
                 unitTextSize = 12.sp,
                 nameTextStyle = MaterialTheme.typography.body2,
             )
             Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
             NutrientInfo(
-                name = stringResource(id = nz.adjmunro.core.R.string.fat),
+                name = stringResource(id = CoreString.fat),
                 amount = trackedFood.fat,
-                unit = UiText.of(value = nz.adjmunro.core.R.string.grams),
+                unit = UiText.of(value = CoreString.grams),
                 amountTextSize = 16.sp,
                 unitTextSize = 12.sp,
                 nameTextStyle = MaterialTheme.typography.body2,

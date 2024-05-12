@@ -47,7 +47,7 @@ fun ExpandableMeal(
                 onToggleClicked()
             }
             .padding(LocalSpacing.current.medium_16),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.Top,
     ) {
         Image(
             painter = painterResource(id = meal.drawableRes),
@@ -101,9 +101,10 @@ fun ExpandableMeal(
                 }
             }
             Spacer(modifier = Modifier.height(LocalSpacing.current.medium_16))
-            AnimatedVisibility(visible = meal.isExpanded) {
-                content()
-            }
         }
+    }
+
+    AnimatedVisibility(visible = meal.isExpanded) {
+        content()
     }
 }

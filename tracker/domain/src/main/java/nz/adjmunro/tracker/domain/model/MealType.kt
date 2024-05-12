@@ -5,7 +5,6 @@ sealed class MealType(val id: String) {
     data object Lunch : MealType(id = "lunch")
     data object Dinner : MealType(id = "dinner")
     data object Snack : MealType(id = "snack")
-    data object Other : MealType(id = "other")
 
     companion object {
         fun fromString(name: String): MealType = when (name) {
@@ -13,7 +12,7 @@ sealed class MealType(val id: String) {
             Lunch.id -> Lunch
             Dinner.id -> Dinner
             Snack.id -> Snack
-            else -> Other
+            else -> throw IllegalArgumentException("Unknown meal type: $name")
         }
     }
 }

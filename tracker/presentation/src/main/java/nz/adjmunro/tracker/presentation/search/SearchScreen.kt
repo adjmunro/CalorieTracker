@@ -40,6 +40,7 @@ import java.time.LocalDate
 fun SearchScreen(
     viewModel: SearchViewModel = hiltViewModel(),
     mealName: String,
+    mealType: String,
     dayOfMonth: Int,
     month: Int,
     year: Int,
@@ -69,6 +70,7 @@ fun SearchScreen(
     SearchScreen(
         state = viewModel.state,
         mealName = mealName,
+        mealType = mealType,
         dayOfMonth = dayOfMonth,
         month = month,
         year = year,
@@ -81,6 +83,7 @@ fun SearchScreen(
 private fun SearchScreen(
     state: SearchState = SearchState(),
     mealName: String,
+    mealType: String,
     dayOfMonth: Int,
     month: Int,
     year: Int,
@@ -113,7 +116,11 @@ private fun SearchScreen(
         },
     )
     Spacer(modifier = Modifier.height(LocalSpacing.current.medium_16))
-    LazyColumn(modifier = Modifier.fillMaxWidth().wrapContentHeight()) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+    ) {
         items(state.trackableFoodList) { food ->
             TrackableFoodItem(
                 trackableFoodUiState = food,
@@ -131,7 +138,7 @@ private fun SearchScreen(
                     onEvent(
                         OnTrackFoodClicked(
                             food = food.food,
-                            mealType = MealType.fromString(mealName),
+                            mealType = MealType.fromString(mealType),
                             date = LocalDate.of(
                                 year,
                                 month,

@@ -25,7 +25,7 @@ import nz.adjmunro.tracker.presentation.overview.components.TrackedFoodItem
 @Composable
 fun TrackerOverviewScreen(
     viewModel: TrackerOverviewViewModel = hiltViewModel(),
-    onNavigateToSearch: (mealName: String, day: Int, month: Int, year: Int) -> Unit,
+    onNavigateToSearch: (meal: Meal, day: Int, month: Int, year: Int) -> Unit,
 ) {
     TrackerOverviewScreen(
         state = viewModel.state,
@@ -38,7 +38,7 @@ fun TrackerOverviewScreen(
 private fun TrackerOverviewScreen(
     state: TrackerOverviewState = TrackerOverviewState(),
     onEvent: (TrackerOverviewEvent) -> Unit = {},
-    onNavigateToSearch: (mealName: String, day: Int, month: Int, year: Int) -> Unit = { _, _, _, _ -> },
+    onNavigateToSearch: (meal: Meal, day: Int, month: Int, year: Int) -> Unit = { _, _, _, _ -> },
     context: Context = LocalContext.current,
 ) = LazyColumn(
     modifier = Modifier
@@ -73,7 +73,7 @@ private fun TrackerOverviewScreen(
                     .fillMaxWidth()
                     .padding(horizontal = LocalSpacing.current.small_8)
             ) {
-                state.trackedFoods.forEach { food ->
+                state.trackedFoods.filter { it.mealType == meal.mealType }.forEach { food ->
                     TrackedFoodItem(
                         trackedFood = food,
                         onDeleteClicked = { onEvent(TrackerOverviewEvent.OnDeleteTrackedFoodClicked(food)) },
@@ -88,7 +88,7 @@ private fun TrackerOverviewScreen(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
                         onNavigateToSearch(
-                            meal.name.asString(context),
+                            meal,
                             state.date.dayOfMonth,
                             state.date.monthValue,
                             state.date.year

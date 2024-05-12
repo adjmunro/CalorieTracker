@@ -6,7 +6,7 @@ import nz.adjmunro.tracker.data.local.entity.TrackedFoodEntity
 
 @Database(
     entities = [TrackedFoodEntity::class],
-    version = 0,
+    version = 1,
 )
 abstract class TrackerDatabase : RoomDatabase() {
     abstract val dao: TrackerDao

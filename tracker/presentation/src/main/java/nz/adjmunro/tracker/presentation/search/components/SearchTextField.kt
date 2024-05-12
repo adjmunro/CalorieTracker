@@ -59,7 +59,7 @@ fun SearchTextField(
             defaultKeyboardAction(ImeAction.Search)
         }),
         keyboardOptions = KeyboardOptions(
-            imeAction = ImeAction.Search
+            imeAction = ImeAction.Search,
         ),
     )
 

@@ -75,6 +75,7 @@ fun SearchScreen(
     )
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun SearchScreen(
     state: SearchState = SearchState(),
@@ -88,6 +89,8 @@ private fun SearchScreen(
         .fillMaxSize()
         .padding(LocalSpacing.current.medium_16),
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     Text(
         text = stringResource(
             id = CoreString.add_meal,
@@ -98,7 +101,11 @@ private fun SearchScreen(
     Spacer(modifier = Modifier.height(LocalSpacing.current.medium_16))
     SearchTextField(
         text = state.query,
-        onSearch = { onEvent(SearchEvent.OnSearch) },
+        shouldShowHint = state.isHintVisible,
+        onSearch = {
+            keyboardController?.hide()
+            onEvent(SearchEvent.OnSearch)
+        },
         onValueChanged = { onEvent(SearchEvent.OnQueryChanged(it)) },
         onFocusChanged = { focusState ->
             onEvent(SearchEvent.OnSearchFocusChange(focusState.isFocused))
@@ -119,6 +126,7 @@ private fun SearchScreen(
                     )
                 },
                 onTrack = {
+                    keyboardController?.hide()
                     onEvent(
                         OnTrackFoodClicked(
                             food = food.food,

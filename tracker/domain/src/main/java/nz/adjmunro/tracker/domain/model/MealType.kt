@@ -1,10 +1,7 @@
 package nz.adjmunro.tracker.domain.model
 
-sealed class MealType(val id: String) {
-    data object Breakfast : MealType(id = "breakfast")
-    data object Lunch : MealType(id = "lunch")
-    data object Dinner : MealType(id = "dinner")
-    data object Snack : MealType(id = "snack")
+enum class MealType(val id: String) {
+    Breakfast(id = "breakfast"), Lunch(id = "lunch"), Dinner(id = "dinner"), Snack(id = "snack");
 
     companion object {
         fun fromString(name: String): MealType = when (name) {

@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.models.Gender
 import nz.adjmunro.core.domain.preferences.Preferences
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.UiEvent
 import javax.inject.Inject
 
@@ -33,7 +32,7 @@ class GenderViewModel @Inject constructor(
     fun onNextClicked() {
         viewModelScope.launch {
             preferences.saveGender(selectedGender)
-            _uiEvent.send(UiEvent.Navigate(Routes.AGE))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

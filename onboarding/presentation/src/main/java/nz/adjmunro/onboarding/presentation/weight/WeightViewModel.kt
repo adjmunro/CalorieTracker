@@ -11,10 +11,8 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.preferences.Preferences
 import nz.adjmunro.core.domain.preferences.Weight
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent
-import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.core.util.UiText
 import javax.inject.Inject
 
@@ -48,7 +46,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weight = weightNumber)
-            _uiEvent.send(Navigate(Routes.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

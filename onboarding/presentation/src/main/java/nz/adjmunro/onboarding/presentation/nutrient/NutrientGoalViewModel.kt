@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.preferences.Preferences
 import nz.adjmunro.core.domain.usecase.FilterOnlyDigits
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.UiEvent
 import nz.adjmunro.onboarding.domain.models.NutrientGoalState
 import nz.adjmunro.onboarding.domain.usecase.ValidateNutrients
@@ -62,7 +61,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveProteinRatio(result.proteinRatio)
                         preferences.saveFatRatio(result.fatRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Routes.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
 

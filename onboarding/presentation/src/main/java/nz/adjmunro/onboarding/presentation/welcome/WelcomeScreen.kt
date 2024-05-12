@@ -13,15 +13,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.CoreString
-import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(
-    onNavigate: (Navigate) -> Unit = {},
+    onNextClicked: () -> Unit = {},
 ) = Column(
     modifier = Modifier
         .fillMaxSize()
@@ -40,6 +38,6 @@ fun WelcomeScreen(
     ActionButton(
         text = stringResource(id = CoreString.next),
         modifier = Modifier.align(Alignment.CenterHorizontally),
-    ) { onNavigate(Navigate(Routes.GENDER)) }
-
+        onClick = onNextClicked,
+    )
 }

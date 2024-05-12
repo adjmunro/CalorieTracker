@@ -18,8 +18,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import nz.adjmunro.core.util.CoreString
-import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.core.util.UiEvent.ShowSnackbar
+import nz.adjmunro.core.util.UiEvent.Success
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.domain.models.NutrientGoalState
 import nz.adjmunro.onboarding.presentation.components.ActionButton
@@ -29,13 +29,13 @@ import nz.adjmunro.onboarding.presentation.components.UnitTextField
 fun NutrientGoalScreen(
     viewModel: NutrientGoalViewModel = hiltViewModel(),
     scaffoldState: ScaffoldState,
-    onNavigate: (Navigate) -> Unit,
+    onNextClicked: () -> Unit,
 ) {
     val context = LocalContext.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is Navigate -> onNavigate(event)
+                is Success -> onNextClicked()
                 is ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context = context)

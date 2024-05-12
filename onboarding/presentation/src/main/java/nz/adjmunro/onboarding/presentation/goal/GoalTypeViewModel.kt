@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.models.GoalType
 import nz.adjmunro.core.domain.preferences.Preferences
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.UiEvent
 import javax.inject.Inject
 
@@ -33,7 +32,7 @@ class GoalTypeViewModel @Inject constructor(
     fun onNextClicked() {
         viewModelScope.launch {
             preferences.saveGoalType(selectedGoalType)
-            _uiEvent.send(UiEvent.Navigate(Routes.NUTRIENT_GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

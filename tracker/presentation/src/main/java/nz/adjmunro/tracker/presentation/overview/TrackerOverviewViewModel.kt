@@ -13,11 +13,8 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.preferences.Preferences
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.UiEvent
-import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.tracker.domain.usecase.TrackerUseCases
-import nz.adjmunro.tracker.presentation.overview.TrackerOverviewEvent.OnAddFoodClicked
 import nz.adjmunro.tracker.presentation.overview.TrackerOverviewEvent.OnDeleteTrackedFoodClicked
 import nz.adjmunro.tracker.presentation.overview.TrackerOverviewEvent.OnNextDayClicked
 import nz.adjmunro.tracker.presentation.overview.TrackerOverviewEvent.OnPreviousDayClicked
@@ -45,18 +42,7 @@ class TrackerOverviewViewModel @Inject constructor(
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is OnAddFoodClicked -> viewModelScope.launch {
-                val route = buildString {
-                    append(Routes.SEARCH)
-                    append("/${event.meal.mealType.id}")
-                    append("/${state.date.dayOfMonth}")
-                    append("/${state.date.monthValue}")
-                    append("/${state.date.year}")
-                }
-                _uiEvent.send(Navigate(route = route))
-            }
-
-            is OnDeleteTrackedFoodClicked -> viewModelScope.launch {
+           is OnDeleteTrackedFoodClicked -> viewModelScope.launch {
                 trackerUseCases.deleteTrackedFood(event.trackedFood)
                 refreshFoods()
             }

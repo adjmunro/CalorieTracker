@@ -1,4 +1,4 @@
-package nz.adjmunro.core.navigation
+package nz.adjmunro.calorietracker.navigation
 
 typealias Route = String
 

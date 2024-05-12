@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import nz.adjmunro.core.domain.models.ActivityLevel
 import nz.adjmunro.core.util.CoreString
-import nz.adjmunro.core.util.UiEvent.Navigate
+import nz.adjmunro.core.util.UiEvent.Success
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.onboarding.presentation.components.ActionButton
 import nz.adjmunro.onboarding.presentation.components.SelectableButton
@@ -29,12 +29,12 @@ import nz.adjmunro.onboarding.presentation.components.SelectableButton
 @Composable
 fun ActivityLevelScreen(
     viewModel: ActivityLevelViewModel = hiltViewModel(),
-    onNavigate: (Navigate) -> Unit,
+    onNextClicked: () -> Unit,
 ) {
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is Navigate -> onNavigate(event)
+                is Success -> onNextClicked()
                 else -> Unit
             }
         }

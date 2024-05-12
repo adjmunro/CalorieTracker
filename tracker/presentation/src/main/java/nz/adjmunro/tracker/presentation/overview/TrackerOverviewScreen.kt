@@ -1,5 +1,6 @@
 package nz.adjmunro.tracker.presentation.overview
 
+import android.content.Context
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,13 +10,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import nz.adjmunro.core.util.CoreString
-import nz.adjmunro.core.util.UiEvent.Navigate
 import nz.adjmunro.coreui.LocalSpacing
 import nz.adjmunro.tracker.presentation.components.NutrientsHeader
 import nz.adjmunro.tracker.presentation.overview.components.AddButton
@@ -26,22 +25,12 @@ import nz.adjmunro.tracker.presentation.overview.components.TrackedFoodItem
 @Composable
 fun TrackerOverviewScreen(
     viewModel: TrackerOverviewViewModel = hiltViewModel(),
-    onNavigate: (Navigate) -> Unit,
+    onNavigateToSearch: (mealName: String, day: Int, month: Int, year: Int) -> Unit,
 ) {
-    val context = LocalContext.current
-
-    LaunchedEffect(key1 = context) {
-        viewModel.uiEvent.collect { event ->
-            when (event) {
-                is Navigate -> onNavigate(event)
-                else -> Unit
-            }
-        }
-    }
-
     TrackerOverviewScreen(
         state = viewModel.state,
         onEvent = viewModel::onEvent,
+        onNavigateToSearch = onNavigateToSearch,
     )
 }
 
@@ -49,6 +38,8 @@ fun TrackerOverviewScreen(
 private fun TrackerOverviewScreen(
     state: TrackerOverviewState = TrackerOverviewState(),
     onEvent: (TrackerOverviewEvent) -> Unit = {},
+    onNavigateToSearch: (mealName: String, day: Int, month: Int, year: Int) -> Unit = { _, _, _, _ -> },
+    context: Context = LocalContext.current,
 ) = LazyColumn(
     modifier = Modifier
         .fillMaxSize()
@@ -92,11 +83,16 @@ private fun TrackerOverviewScreen(
                 AddButton(
                     text = stringResource(
                         id = CoreString.add_meal,
-                        meal.name.asString(LocalContext.current),
+                        meal.name.asString(context),
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
-                        onEvent(TrackerOverviewEvent.OnAddFoodClicked(meal))
+                        onNavigateToSearch(
+                            meal.name.asString(context),
+                            state.date.dayOfMonth,
+                            state.date.monthValue,
+                            state.date.year
+                        )
                     },
                 )
             }

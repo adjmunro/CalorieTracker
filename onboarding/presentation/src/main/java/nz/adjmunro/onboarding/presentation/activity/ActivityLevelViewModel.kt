@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.models.ActivityLevel
 import nz.adjmunro.core.domain.preferences.Preferences
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.UiEvent
 import javax.inject.Inject
 
@@ -33,7 +32,7 @@ class ActivityLevelViewModel @Inject constructor(
     fun onNextClicked() {
         viewModelScope.launch {
             preferences.saveActivityLevel(selectedActivityLevel)
-            _uiEvent.send(UiEvent.Navigate(Routes.GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

@@ -12,10 +12,9 @@ import kotlinx.coroutines.launch
 import nz.adjmunro.core.domain.preferences.Age
 import nz.adjmunro.core.domain.preferences.Preferences
 import nz.adjmunro.core.domain.usecase.FilterOnlyDigits
-import nz.adjmunro.core.navigation.Routes
 import nz.adjmunro.core.util.CoreString
 import nz.adjmunro.core.util.UiEvent
-import nz.adjmunro.core.util.UiEvent.Navigate
+import nz.adjmunro.core.util.UiEvent.Success
 import nz.adjmunro.core.util.UiText
 import javax.inject.Inject
 
@@ -50,7 +49,7 @@ class AgeViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(age = ageNumber)
-            _uiEvent.send(Navigate(Routes.HEIGHT))
+            _uiEvent.send(Success)
         }
     }
 }

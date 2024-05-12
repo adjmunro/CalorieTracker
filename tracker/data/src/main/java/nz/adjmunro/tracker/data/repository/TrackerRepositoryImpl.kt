@@ -27,7 +27,21 @@ class TrackerRepositoryImpl(
                 page = page,
                 pageSize = pageSize,
             )
-            Result.success(searchDto.products.mapNotNull { it.toTrackableFood() })
+
+            val food = searchDto.products.filter {
+                // Filter out search results with inconsistent calorie counts
+                val carbs = it.nutriments.carbohydrates100g * 4f
+                val protein = it.nutriments.proteins100g * 4f
+                val fat = it.nutriments.fat100g * 9f
+                val acceptableBounds = (carbs + protein + fat).let { cal ->
+                    (cal * 0.99f)..(cal * 1.01f)
+                }
+
+                it.nutriments.energyKcal100g in acceptableBounds
+            }
+                .mapNotNull { it.toTrackableFood() }
+
+            Result.success(food)
 
         } catch (e: Exception) {
             e.printStackTrace()
@@ -48,7 +62,8 @@ class TrackerRepositoryImpl(
             day = localDate.dayOfMonth,
             month = localDate.monthValue,
             year = localDate.year,
-        ).map { entities ->
-            entities.map { it.toTrackedFood() }
-        }
+        )
+            .map { entities ->
+                entities.map { it.toTrackedFood() }
+            }
 }

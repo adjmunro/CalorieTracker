@@ -69,40 +69,40 @@ fun ExpandableMeal(
                     imageVector = if (meal.isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
                     contentDescription = if (meal.isExpanded) stringResource(id = CoreString.collapse) else stringResource(id = CoreString.extend),
                 )
-                Spacer(modifier = Modifier.height(LocalSpacing.current.small_8))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                    UnitDisplay(
-                        amount = meal.calories,
-                        unit = UiText.of(value = CoreString.kcal),
-                        amountTextSize = 30.sp,
+            }
+            Spacer(modifier = Modifier.height(LocalSpacing.current.small_8))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                UnitDisplay(
+                    amount = meal.calories,
+                    unit = UiText.of(value = CoreString.kcal),
+                    amountTextSize = 30.sp,
+                )
+                Row {
+                    NutrientInfo(
+                        name = stringResource(id = CoreString.carbs),
+                        amount = meal.carbs,
+                        unit = UiText.of(value = CoreString.grams),
                     )
-                    Row {
-                        NutrientInfo(
-                            name = stringResource(id = CoreString.carbs),
-                            amount = meal.carbs,
-                            unit = UiText.of(value = CoreString.grams),
-                        )
-                        Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
-                        NutrientInfo(
-                            name = stringResource(id = CoreString.protein),
-                            amount = meal.protein,
-                            unit = UiText.of(value = CoreString.grams),
-                        )
-                        Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
-                        NutrientInfo(
-                            name = stringResource(id = CoreString.fat),
-                            amount = meal.fat,
-                            unit = UiText.of(value = CoreString.grams),
-                        )
-                    }
+                    Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
+                    NutrientInfo(
+                        name = stringResource(id = CoreString.protein),
+                        amount = meal.protein,
+                        unit = UiText.of(value = CoreString.grams),
+                    )
+                    Spacer(modifier = Modifier.width(LocalSpacing.current.small_8))
+                    NutrientInfo(
+                        name = stringResource(id = CoreString.fat),
+                        amount = meal.fat,
+                        unit = UiText.of(value = CoreString.grams),
+                    )
                 }
-                Spacer(modifier = Modifier.height(LocalSpacing.current.medium_16))
-                AnimatedVisibility(visible = meal.isExpanded) {
-                    content()
-                }
+            }
+            Spacer(modifier = Modifier.height(LocalSpacing.current.medium_16))
+            AnimatedVisibility(visible = meal.isExpanded) {
+                content()
             }
         }
     }

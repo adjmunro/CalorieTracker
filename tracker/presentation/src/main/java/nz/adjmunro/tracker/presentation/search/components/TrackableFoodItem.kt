@@ -32,6 +32,8 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.ImeAction.Companion
 import androidx.compose.ui.text.input.KeyboardType
@@ -64,8 +66,7 @@ fun TrackableFoodItem(
             .clip(shape = RoundedCornerShape(5.dp))
             .padding(all = spacing.tiny_4)
             .shadow(
-                elevation = 1.dp,
-                shape = RoundedCornerShape(5.dp)
+                elevation = 1.dp, shape = RoundedCornerShape(5.dp)
             )
             .background(MaterialTheme.colors.surface)
             .clickable { onClick() }
@@ -168,7 +169,10 @@ fun TrackableFoodItem(
                                 color = MaterialTheme.colors.onSurface,
                             )
                             .alignBy(LastBaseline)
-                            .padding(spacing.medium_16),
+                            .padding(spacing.medium_16)
+                            .semantics {
+                                contentDescription = "Amount"
+                            },
                     )
                     Spacer(modifier = Modifier.width(spacing.tiny_4))
                     Text(
